@@ -14,6 +14,7 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { PostComponent } from './components/post/post.component';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
+import { CommentDetailsComponent } from './components/comment-details/comment-details.component';
 
 const routes: Routes = [
   {path:'',component:MainLayoutComponent, children: [
@@ -26,7 +27,9 @@ const routes: Routes = [
       {path: 'posts', component: PostsComponent,children:[
           {path:':id',component: PostDetailsComponent}
         ]},
-      {path:'comments',component:CommentsComponent}
+      {path:'comments',component:CommentsComponent,children:[
+          {path: ':id',component: CommentDetailsComponent}
+        ]}
     ]}
 ];
 
@@ -42,7 +45,8 @@ const routes: Routes = [
     CommentsComponent,
     CommentComponent,
     PostComponent,
-    PostDetailsComponent
+    PostDetailsComponent,
+    CommentDetailsComponent
   ],
   imports: [
     BrowserModule,
