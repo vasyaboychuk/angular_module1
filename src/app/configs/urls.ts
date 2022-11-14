@@ -1,9 +1,15 @@
-const baseURL = 'https://jsonplaceholder.typicode.com';
+import {environment} from "../../environments/environment";
 
-const urls = {
-  users: `${baseURL}/users`,
-  posts: `${baseURL}/posts`,
-  comments: `${baseURL}/comments`,
+const {API} = environment;
+const auth=`${API}/auth`
+
+const urls={
+  cars: `${API}/cars`,
+  auth: {
+    login: auth,
+    refresh:`${auth}/refresh`
+  }
+}
+export {
+  urls
 };
-
-export {urls};
